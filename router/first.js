@@ -6,7 +6,7 @@ const delData = sth.delData;
 const router = express.Router();
 
 router.get("/", (request, response) => {
-    response.send("Hello World. See `/help.txt` for details. (");
+    response.send("Hello World. See `/help.txt` for details. (https://lkt-back-end.herokuapp.com/first_app/help.txt)");
 });
 
 router.use(express.static('public'));
