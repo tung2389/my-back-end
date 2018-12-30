@@ -1,0 +1,4 @@
+- `/all` to fetch all data
+- `/add/:name/:id?` to add data
+- `/del/:name` to delete data with name
+- `/delid/:id` to delete data with id
