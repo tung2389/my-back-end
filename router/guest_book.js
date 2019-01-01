@@ -4,7 +4,6 @@ const Signature = require('../model/Signature.js')
 
 const router = express.Router();
 
-router.use(bodyParser());
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.get("/",(req,res) => {
