@@ -5,6 +5,8 @@ const fs = require('fs');
 
 const router = express.Router();
 
+router.use(express.static('public'));
+
 const storage = multer.diskStorage({
     destination: function(req,res,cb) {
         cb(null,'./public/upload/');
