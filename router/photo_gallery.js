@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const photo = require('../model/photo.js');
 const fs = require('fs');
+const path = require('path');
 
 const router = express.Router();
 

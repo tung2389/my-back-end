@@ -4,6 +4,7 @@ const fetchData = sth.fetchData;
 const addData = sth.addData;
 const delData = sth.delData;
 const router = express.Router();
+const path = require('path');
 
 router.get("/", (request, response) => {
     response.send("Hello World. See `/help.txt` for details. (https://lkt-back-end.herokuapp.com/first_app/help.txt)");
