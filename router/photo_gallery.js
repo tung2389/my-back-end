@@ -6,11 +6,13 @@ const path = require('path');
 
 const router = express.Router();
 
-router.use(express.static(path.join(__dirname,'public')));
+process.env.PWD = process.cwd();
+
+router.use(express.static(path.join(process.env.PWD,'public')));
 
 const storage = multer.diskStorage({
     destination: function(req,res,cb) {
-        cb(null,path.join(__dirname,'public/upload'));
+        cb(null,path.join(process.env.PWD,'public/upload'));
     }
 });
 

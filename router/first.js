@@ -6,11 +6,13 @@ const delData = sth.delData;
 const router = express.Router();
 const path = require('path');
 
+process.env.PWD = process.cwd();
+
 router.get("/", (request, response) => {
     response.send("Hello World. See `/help.txt` for details. (https://lkt-back-end.herokuapp.com/first_app/help.txt)");
 });
 
-router.use(express.static(path.join(__dirname,'public')));
+router.use(express.static(path.join(process.env.PWD,'public')));
 
 router.get("/all", (request, response) => {
     (async () => {
