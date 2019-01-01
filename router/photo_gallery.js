@@ -17,7 +17,7 @@ router.get('/',(req,res) => {
     res.send("This is the api of photo gallery");
 });
 
-router.route('/img_data').post(upload.array('file'),(req,res) => {
+router.route('/all_data').post(upload.array('file'),(req,res) => {
     for(let i=0;i<req.files.length;i++)
     {
     let new_photo = new photo;
