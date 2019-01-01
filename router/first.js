@@ -9,7 +9,7 @@ router.get("/", (request, response) => {
     response.send("Hello World. See `/help.txt` for details. (https://lkt-back-end.herokuapp.com/first_app/help.txt)");
 });
 
-router.use(express.static('public'));
+router.use(express.static(path.join(__dirname,'public')));
 
 router.get("/all", (request, response) => {
     (async () => {

@@ -5,11 +5,11 @@ const fs = require('fs');
 
 const router = express.Router();
 
-router.use(express.static('public'));
+router.use(express.static(path.join(__dirname,'public')));
 
 const storage = multer.diskStorage({
     destination: function(req,res,cb) {
-        cb(null,'./public/upload/');
+        cb(null,path.join(__dirname,'public/upload'));
     }
 });
 
