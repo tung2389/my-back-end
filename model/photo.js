@@ -4,8 +4,7 @@ let Schema = mongoose.Schema;
 
 const photo_schema = new Schema(
     {
-            data: Buffer,
-            contentType: String
+        filePath: String
     },
     {timestamps: true}
 );
