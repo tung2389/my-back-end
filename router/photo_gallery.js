@@ -39,11 +39,9 @@ router.route('/all_data').post(upload.array('file'),(req,res) => {
     {
         const host = req.host;
         const filePath = req.protocol + "://" + host + '/photo_gallery/'  + req.files[i].path;
-        console.log(filePath);
-    // let new_photo = new photo;
-    // new_photo.data = fs.readFileSync(req.files[i].path);
-    // new_photo.contentType = req.files[i].mimetype;
-    // new_photo.save();
+        let new_photo = new photo;
+        new_photo.filePath = filePath;
+        new_photo.save();
     }
     res.send("New image added");
 })
