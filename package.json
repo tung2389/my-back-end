@@ -12,11 +12,13 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
-    "dropbox": "^4.0.14",
+    "dropbox": "^4.0.15",
     "express": "^4.16.4",
+    "fs": "0.0.1-security",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^5.4.1",
-    "multer": "^1.4.1"
+    "multer": "^1.4.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
