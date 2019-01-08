@@ -1,59 +1,30 @@
 const express = require('express');
-const multer = require('multer');
 const photo = require('../model/photo.js');
-const fs = require('fs');
-const path = require('path');
-
+const bodyParser = require('body-parser');
 const router = express.Router();
 
-// process.env.PWD = process.cwd();
-
-// router.use(express.static(path.join(process.env.PWD,'public')));
-
-// const storage = multer.diskStorage({
-//     destination: function(req,res,cb) {
-//         cb(null,path.join(process.env.PWD,'public/upload'));
-//     }
-// });
-
-// const upload = multer({storage:storage});
-const storage = multer.diskStorage({
-    destination:'./public/upload/',
-    filename: function(req,file,cb)
-    {
-        let extension =  file.originalname.split('.').pop();
-        cb(null,file.fieldname + Date.now() + "." + extension);
-    }
-});
-
-const upload = multer({storage:storage});
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/',(req,res) => {
     res.send("This is the api of photo gallery");
 });
 
-router.use('/public',express.static('public'));
-
-router.route('/all_data').post(upload.array('file'),(req,res) => {
-    for(let i=0;i<req.files.length;i++)
+router.route('/all_data').post((req,res) => {
+    let files = req.body.files;
+    for(let i=0;i<files.length;i++)
     {
-        const host = req.host;
-        const filePath = req.protocol + "://" + host + '/photo_gallery/'  + req.files[i].path;
-        let new_photo = new photo;
-        new_photo.filePath = filePath;
-        new_photo.save();
+        let file = files[i];
+        photo.create({
+            filePath:file
+        });
     }
-    res.send("New image added");
 })
 .get((req,res) => {
     photo.find({},(err,img) =>{
         if(err)
         throw err;
-        res.contentType('json');
-        res.send(img);
+        res.json(img);
     });
 });
-router.get('/delete',(req,res) => {
-    photo.deleteMany({},(err) => console.log(err));
-})
 module.exports = router;
