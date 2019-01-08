@@ -19,6 +19,7 @@ router.route('/all_data').post((req,res) => {
             filePath:file
         });
     }
+    res.json(files);
 })
 .get((req,res) => {
     photo.find({},(err,img) =>{
