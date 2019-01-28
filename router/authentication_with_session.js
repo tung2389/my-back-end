@@ -100,14 +100,6 @@ router.get('/logout',(req,res) => {
         res.send("You haven't logged in yet");
     }
 });
-router.get('/all_data',(req,res) => {
-    user.find({}).then(data => {
-        res.json(data);
-    })
-});
 
-router.get('/delete',(req,res) => {
-    user.deleteMany({},(err) => {console.log(err);res.send('deleted')});
-})
 
 module.exports = router;
