@@ -28,8 +28,6 @@ router.get('/',(req,res) => {
 router.post('/login',(req,res,next) => {
     let email = req.body.email;
     let password = req.body.password;
-    console.log(email);
-    console.log(password);
     authenticate(email,password,function(err,status,user){
         if(err)
         {
@@ -44,7 +42,6 @@ router.post('/login',(req,res,next) => {
             else
             {
                 req.session.user_id = user._id;
-                console.log(req.session.user_id);
                 res.send('Logged in successfully');
             }
         }
@@ -64,7 +61,6 @@ router.post('/sign_up',(req,res) => {
 });
 
 router.get('/profile',(req,res,next) => {
-    console.log(req.session.user_id);
     user.findById(req.session.user_id)
         .exec(function(err,user){
             if(err)
