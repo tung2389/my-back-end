@@ -12,7 +12,7 @@ const fetch = require('isomorphic-fetch');
 process.env.PWD = process.cwd();
 
 router.use(express.static(path.join(process.env.PWD,'public')));
-router.use(cors({origin:'https://tung2389.github.io/photo_gallery'}));
+router.use(cors({origin:'https://tung2389.github.io'}));
 
 const storage = multer.diskStorage({
     destination: function(req,res,cb) {

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
-router.use(cors({origin:'https://tung2389.github.io/guest_book/'}));
+router.use(cors({origin:'https://tung2389.github.io'}));
 
 router.get("/",(req,res) => {
     res.send("Hello. This is the api of the app");

@@ -10,7 +10,7 @@ const cors = require('cors');
 const authenticate = sth.authenticate;
 const create_user = sth.create_user;
 
-router.use(cors({credentials:true,origin:'https://tung2389.github.io/authentication_with_session'}));
+router.use(cors({credentials:true,origin:'https://tung2389.github.io'}));
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(session({
