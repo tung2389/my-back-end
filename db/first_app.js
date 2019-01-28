@@ -1,4 +1,3 @@
-const mongoose =  require('mongoose');
 const dataModel = require("../model/data.js");
 
 async function fetchData(query) {

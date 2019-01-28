@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Signature = require('../model/Signature.js')
-
+const cors = require('cors');
 const router = express.Router();
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
+router.use(cors({origin:'https://tung2389.github.io/guest_book/'}));
+
 router.get("/",(req,res) => {
     res.send("Hello. This is the api of the app");
 });

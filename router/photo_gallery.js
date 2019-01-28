@@ -6,11 +6,13 @@ const Dropbox = require('dropbox');
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
+const cors = require('cors');
 const fetch = require('isomorphic-fetch');
 
 process.env.PWD = process.cwd();
 
 router.use(express.static(path.join(process.env.PWD,'public')));
+router.use(cors({origin:'https://tung2389.github.io/photo_gallery'}));
 
 const storage = multer.diskStorage({
     destination: function(req,res,cb) {

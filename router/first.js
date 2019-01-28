@@ -1,5 +1,5 @@
 const express = require('express');
-const sth = require('../db/db.js');
+const sth = require('../db/first_app.js');
 const fetchData = sth.fetchData;
 const addData = sth.addData;
 const delData = sth.delData;
